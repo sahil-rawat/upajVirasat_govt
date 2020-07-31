@@ -1,0 +1,615 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>upajVirasat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/metisMenu.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.min.css">
+	<!-- amchart css -->
+	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+	<!-- others css -->
+	<link rel="stylesheet" href="assets/css/typography.css">
+	<link rel="stylesheet" href="assets/css/default-css.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+	<!-- modernizr css -->
+	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+	
+</head>
+
+<body>
+	<!-- preloader area start -->
+	<div id="preloader">
+		<div class="loader"></div>
+	</div>
+	<!-- preloader area end -->
+	<!-- page container area start -->
+	<div class="page-container">
+		<!-- sidebar menu area start -->
+		<div class="sidebar-menu">
+			<div class="sidebar-header">
+				<div class="logo">
+					<a href="/"><img src="assets/images/icon/logo.png" alt="logo"></a>
+				</div>
+			</div>
+			<div class="main-menu">
+				<div class="menu-inner">
+					<nav>
+						<ul class="metismenu" id="menu">
+							<li class="active">
+								<a href="/" aria-expanded="true"><i class="ti-dashboard"></i><span>Main Dashboard</span></a>
+							</li>                            
+							<li>
+								<a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-leaf"></i><span>Crops Analysis</span></a>
+								<ul class="collapse">
+									<li><a href="/crops?crop=arhar">Arhar</a></li>
+									<li><a href="/crops?crop=banana">Banana</a></li>
+									<li><a href="/crops?crop=cauliflower">Cauliflower</a></li>
+									<li><a href="/crops?crop=eggplant">Eggplant</a></li>
+									<li><a href="/crops?crop=gram">Gram</a></li>
+									<li><a href="/crops?crop=guava">Guava</a></li>
+									<li><a href="/crops?crop=jute">Jute</a></li>
+									<li><a href="/crops?crop=lentils">Lentils</a></li>
+									<li><a href="/crops?crop=lychee">Lychee</a></li>
+									<li><a href="/crops?crop=maize">Maize</a></li>
+									<li><a href="/crops?crop=mango">Mango</a></li>
+									<li><a href="/crops?crop=moong">Moong</a></li>
+									<li><a href="/crops?crop=onion">Onion</a></li>
+									<li><a href="/crops?crop=peas">Peas</a></li>
+									<li><a href="/crops?crop=pineapple">Pineapple</a></li>
+									<li><a href="/crops?crop=potato">Potato</a></li>
+									<li><a href="/crops?crop=rice">Rice</a></li>
+									<li><a href="/crops?crop=sugarcane">Sugarcane</a></li>
+									<li><a href="/crops?crop=urad">Urad</a></li>
+									<li><a href="/crops?crop=wheat">Wheat</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="/table" aria-expanded="true"><i class="fa fa-table"></i>
+								   <span>Complete Data</span></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- sidebar menu area end -->
+		<!-- main content area start -->
+		<div class="main-content">
+			<!-- header area start -->
+			<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>                    
+				</div>
+			</div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left">Dashboard</h4>
+							<ul class="breadcrumbs pull-left">
+								<li><a href="/">Home</a></li>
+								<li><span>Dashboard</span></li>
+							</ul>
+						</div>
+					</div>
+					<!-- 
+					<div class="col-sm-6 clearfix">
+						<div class="user-profile pull-right">
+							<img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
+							<h4 class="user-name dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></h4>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">Log Out</a>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<!-- page title area end -->
+			<div class="main-content-inner">
+				<!-- top3 crops area start -->
+				<div class="sales-report-area mt-5 mb-5">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="single-report mb-xs-30">
+								<div class="s-report-inner pr--20 pt--30 mb-3">
+									<div class="icon"><i class="fa fa-leaf"></i></div>
+									<div class="s-report-title d-flex justify-content-between">
+										<h4 class="header-title mb-0">Lychee</h4>          
+									</div>
+									<div class="d-flex justify-content-between pb-2">
+										<h2>Total Yield <%= JSON.parse(data)['lychee']['total'] %> Mg/ha</h2>
+									</div>
+								</div>
+								<canvas id="topcrop1" height="100"></canvas>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="single-report mb-xs-30">
+								<div class="s-report-inner pr--20 pt--30 mb-3">
+									<div class="icon"><i class="fa fa-leaf"></i></div>
+									<div class="s-report-title d-flex justify-content-between">
+										<h4 class="header-title mb-0">Onion</h4>
+									</div>
+									<div class="d-flex justify-content-between pb-2">
+										<h2>Total Yield <%= JSON.parse(data)['onion']['total'] %> Mg/ha</h2>
+									</div>
+								</div>
+								<canvas id="topcrop2" height="100"></canvas>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="single-report">
+								<div class="s-report-inner pr--20 pt--30 mb-3">
+									<div class="icon"><i class="fa fa-leaf"></i></div>
+									<div class="s-report-title d-flex justify-content-between">
+										<h4 class="header-title mb-0">Cauliflower</h4>
+									</div>
+									<div class="d-flex justify-content-between pb-2">
+										<h2>Total Yield <%= JSON.parse(data)['cauliflower']['total'] %> Mg/ha</h2>
+									</div>
+								</div>
+								<canvas id="topcrop3" height="100"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- top3 crops area end -->
+				<!-- overview area start -->
+				<div class="row">
+					<div class="col-xl-12 col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-center">
+									<h4 class="header-title mb-0">Overview</h4>
+								</div>
+								<div id="amlinechart4"></div>
+							</div>
+						</div>
+					</div>
+				<!-- overview area end -->
+				<!-- data area start -->
+				<div class="row mt-5 mb-5">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-sm-flex justify-content-between align-items-center">
+									<h4 class="header-title mb-0">Required Yields and Actual Yields</h4>          
+								</div>
+								<div class="market-status-table mt-4">
+									<div class="table-responsive">
+										<table class="dbkit-table">
+											<tr class="heading-td">
+												<td class="coin-name">Crop Name</td>
+												<td></td>
+												<td class="trends">Required Yield<br>(in Mg/ha)</td>
+												<td></td>
+												<td class="attachments">Actual Yield<br>(in Mg/ha)</td>
+												<td></td>
+												<td class="stats-chart">Status</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Arhar</td>
+												<td class="trends"><%= JSON.parse(data)['req']['arhar_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['arhar']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 < 30){%>
+															<div class= "progress-bar progress-bar-striped progress-bar-animated bg-danger"  role="progressbar" style= <%= "width:" +(JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 < 60) { %>
+															<div class= "progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style= <%= "width:" +(JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 < 90) { %>
+															<div class= "progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style= <%= "width:" +(JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class= "progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style= <%= "width:" +(JSON.parse(data)['arhar']['total']/JSON.parse(data)['req']['arhar_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Banana</td>
+												<td class="trends"><%= JSON.parse(data)['req']['banana_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['banana']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['banana']['total']/JSON.parse(data)['req']['banana_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+														</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Cauliflower</td>
+												<td class="trends"><%= JSON.parse(data)['req']['cauliflower_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['cauliflower']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['cauliflower']['total']/JSON.parse(data)['req']['cauliflower_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>                                                            
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Eggplant</td>
+												<td class="trends"><%= JSON.parse(data)['req']['eggplant_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['eggplant']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['eggplant']['total']/JSON.parse(data)['req']['eggplant_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Gram</td>
+												<td class="trends"><%= JSON.parse(data)['req']['gram_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['gram']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['gram']['total']/JSON.parse(data)['req']['gram_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Guava</td>
+												<td class="trends"><%= JSON.parse(data)['req']['guava_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['guava']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['guava']['total']/JSON.parse(data)['req']['guava_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Jute</td>
+												<td class="trends"><%= JSON.parse(data)['req']['jute_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['jute']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['jute']['total']/JSON.parse(data)['req']['jute_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                               
+												<td class="coin-name">Lentils</td>
+												<td class="trends"><%= JSON.parse(data)['req']['lentils_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['lentils']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lentils']['total']/JSON.parse(data)['req']['lentils_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+														
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Lychee</td>
+												<td class="trends"><%= JSON.parse(data)['req']['lychee_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['lychee']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['lychee']['total']/JSON.parse(data)['req']['lychee_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Maize</td>
+												<td class="trends"><%= JSON.parse(data)['req']['maize_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['maize']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['maize']['total']/JSON.parse(data)['req']['maize_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="coin-name">Mango</td>
+												<td class="trends"><%= JSON.parse(data)['req']['mango_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['mango']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['mango']['total']/JSON.parse(data)['req']['mango_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Moong</td>
+												<td class="trends"><%= JSON.parse(data)['req']['moong_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['moong']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['moong']['total']/JSON.parse(data)['req']['moong_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Onion</td>
+												<td class="trends"><%= JSON.parse(data)['req']['onion_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['onion']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['onion']['total']/JSON.parse(data)['req']['onion_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Peas</td>
+												<td class="trends"><%= JSON.parse(data)['req']['peas_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['peas']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['peas']['total']/JSON.parse(data)['req']['peas_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Pineapple</td>
+												<td class="trends"><%= JSON.parse(data)['req']['pineapple_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['pineapple']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['pineapple']['total']/JSON.parse(data)['req']['pineapple_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Potato</td>
+												<td class="trends"><%= JSON.parse(data)['req']['potato_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['potato']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['potato']['total']/JSON.parse(data)['req']['potato_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Rice</td>
+												<td class="trends"><%= JSON.parse(data)['req']['rice_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['rice']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['rice']['total']/JSON.parse(data)['req']['rice_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Sugarcane</td>
+												<td class="trends"><%= JSON.parse(data)['req']['sugarcane_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['sugarcane']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['sugarcane']['total']/JSON.parse(data)['req']['sugarcane_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Urad</td>
+												<td class="trends"><%= JSON.parse(data)['req']['urad_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['urad']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['urad']['total']/JSON.parse(data)['req']['urad_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+											<tr>                                                
+												<td class="coin-name">Wheat</td>
+												<td class="trends"><%= JSON.parse(data)['req']['wheat_req'] %></td>
+												<td class="attachments"><%= JSON.parse(data)['wheat']['total'] %></td>
+												<td class="stats-chart">
+													<div class="progress" style="height: 8px;">
+														<% if((JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 < 30){%>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style=<%= "width:" +(JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 < 60) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style=<%= "width:" +(JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% }else if((JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 < 90) { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style=<%= "width:" +(JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } else { %>
+															<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style=<%= "width:" +(JSON.parse(data)['wheat']['total']/JSON.parse(data)['req']['wheat_req'])*100 +'% aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"' %>></div>
+														<% } %>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- data area end -->
+				</div>
+			</div>
+		</div>
+		<!-- main content area end -->
+		<!-- footer area start-->
+		<footer>
+			<div class="footer-area">
+				<p>© Copyright 2018. All right reserved.</p>
+			</div>
+			<div>
+				<p hidden id="data_hid" ><%= data %> </p>
+			</div>
+		</footer>
+		<!-- footer area end-->
+	</div>
+	<!-- jquery latest version -->
+	<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="assets/js/metisMenu.min.js"></script>
+	<script src="assets/js/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/jquery.slicknav.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	
+	<!-- start amchart js -->
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	<!-- all line chart activation -->
+	<script src="assets/js/line-chart.js"></script>
+	
+	<script src="assets/js/plugins.js"></script>
+	<script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

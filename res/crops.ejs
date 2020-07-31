@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Crop Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/metisMenu.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/default-css.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="/"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="/" aria-expanded="true"><i class="ti-dashboard"></i><span>Main Dashboard</span></a>                                
+                            </li>                            
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-leaf"></i><span>Crops Analysis</span></a>
+                                <ul class="collapse">
+                                    <li><a href="/crops?crop=arhar">Arhar</a></li>
+									<li><a href="/crops?crop=banana">Banana</a></li>
+									<li><a href="/crops?crop=cauliflower">Cauliflower</a></li>
+									<li><a href="/crops?crop=eggplant">Eggplant</a></li>
+									<li><a href="/crops?crop=gram">Gram</a></li>
+									<li><a href="/crops?crop=guava">Guava</a></li>
+									<li><a href="/crops?crop=jute">Jute</a></li>
+									<li><a href="/crops?crop=lentils">Lentils</a></li>
+									<li><a href="/crops?crop=lychee">Lychee</a></li>
+									<li><a href="/crops?crop=maize">Maize</a></li>
+									<li><a href="/crops?crop=mango">Mango</a></li>
+									<li><a href="/crops?crop=moong">Moong</a></li>
+									<li><a href="/crops?crop=onion">Onion</a></li>
+									<li><a href="/crops?crop=peas">Peas</a></li>
+									<li><a href="/crops?crop=pineapple">Pineapple</a></li>
+									<li><a href="/crops?crop=potato">Potato</a></li>
+									<li><a href="/crops?crop=rice">Rice</a></li>
+									<li><a href="/crops?crop=sugarcane">Sugarcane</a></li>
+									<li><a href="/crops?crop=urad">Urad</a></li>
+									<li><a href="/crops?crop=wheat">Wheat</a></li>                                    
+                                </ul>
+                            </li>                            
+                            <li>
+                                <a href="/table" aria-expanded="true"><i class="fa fa-table"></i>
+                                    <span>Complete Data</span></a>                                
+                            </li>                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>        
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>                        
+                    </div>                    
+                </div>
+            </div>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="/">Home</a></li>
+                                <li><span>Crops Analysis</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div><br></div>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <!-- bar chart start -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-report mb-xs-30">
+                            <div class="s-report-inner pr--20 pt--30 mb-3">
+                                <div class="icon"><i class="fa fa-leaf"></i></div>
+                                <div class="s-report-title d-flex justify-content-between">
+                                    <h4 class="header-title mb-0"><%= c_name %></h4>
+                                </div>
+                                <div class="d-flex justify-content-between pb-2">
+                                    <h2>Total Yield <%= JSON.parse(graph_data)['yield']['total'] %> Mg/ha</h2>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="amlinechart5"></div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-lg-6 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="ambarchart4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2018. All right reserved.</p>
+            </div>
+            <div>
+                <p hidden id="data_hid" ><%= graph_data %> </p>
+            </div>
+        </footer>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/metisMenu.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <!-- start amchart js -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <!-- all line chart activation -->
+    <script src="assets/js/line-chart.js"></script>
+    <!-- all bar chart activation -->
+    <script src="assets/js/bar-chart.js"></script>
+        <!-- others plugins -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
