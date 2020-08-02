@@ -1,7 +1,5 @@
 var express = require('express');
 const path = require('path');
-var bodyParser = require('body-parser');
-var querystring = require('querystring');
 const router = express.Router();
 
 
@@ -14,6 +12,7 @@ app.set("views", __dirname + "/res/");
 //Firebase setup start
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://upajvirasat-cd526.firebaseio.com"
@@ -385,6 +384,7 @@ router.get('/crops',function(req,res){
 router.get('*',function(req,res){
 	res.sendFile(path.join(__dirname, '/res/', '404.html'))
 })
+
 app.use('/',router);
 
-app.listen(process.env.PORT || 8080)
+app.listen(8080)
